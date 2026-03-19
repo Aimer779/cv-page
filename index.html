@@ -446,6 +446,179 @@
     font-style: normal;
   }
 
+  /* ---- Editor / AI Native ---- */
+  .editor-intro {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .editor-intro strong {
+    color: var(--text);
+  }
+
+  .editor-wrap {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .editor-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,0.015);
+    overflow-x: auto;
+  }
+
+  .editor-tab {
+    padding: 10px 18px;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+    color: var(--text-dim);
+    cursor: pointer;
+    border-right: 1px solid var(--border);
+    white-space: nowrap;
+    transition: all 0.15s ease;
+    user-select: none;
+    position: relative;
+  }
+
+  .editor-tab:hover {
+    color: var(--text-secondary);
+    background: rgba(255,255,255,0.02);
+  }
+
+  .editor-tab.active {
+    color: var(--text);
+    background: var(--bg-card);
+  }
+
+  .editor-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .editor-tab .tab-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  .dot-purple { background: var(--accent); }
+  .dot-green  { background: var(--green); }
+  .dot-amber  { background: var(--amber); }
+
+  .editor-body {
+    padding: 24px;
+    max-height: 520px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  .editor-body::-webkit-scrollbar { width: 5px; }
+  .editor-body::-webkit-scrollbar-track { background: transparent; }
+  .editor-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  .editor-panel { display: none; }
+  .editor-panel.active { display: block; }
+
+  .e-comment {
+    font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+
+  .e-section {
+    margin-bottom: 20px;
+  }
+
+  .e-section-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+    letter-spacing: 0.3px;
+  }
+
+  .e-item {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    padding-left: 12px;
+    border-left: 2px solid var(--border);
+    margin-bottom: 8px;
+  }
+
+  .e-item strong { color: var(--text); font-weight: 500; }
+
+  .e-quote {
+    font-size: 13.5px;
+    color: var(--text);
+    font-style: italic;
+    padding: 12px 16px;
+    background: rgba(99,102,241,0.06);
+    border-radius: 8px;
+    margin: 8px 0;
+    line-height: 1.65;
+  }
+
+  .e-kv {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 4px 12px;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .e-kv .e-key {
+    color: var(--text-dim);
+    font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+  }
+
+  .e-kv .e-val { color: var(--text-secondary); }
+
+  .ai-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 20px 0 8px;
+    flex-wrap: wrap;
+  }
+
+  .ai-flow-node {
+    padding: 6px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+  }
+
+  .ai-flow-arrow {
+    color: var(--text-dim);
+    font-size: 14px;
+  }
+
+  .ai-flow-node.highlight {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+
   /* ---- Footer ---- */
   footer {
     text-align: center;
@@ -612,6 +785,138 @@
 
   <div class="divider"></div>
 
+  <!-- AI Native -->
+  <section class="fade-in">
+    <div class="section-label">AI Native</div>
+    <div class="section-title">我和 AI 协作的方式</div>
+    <div class="editor-intro">
+      大多数人用 AI 聊天。我给 AI 建了一套<strong>持久记忆系统</strong>——三个 Markdown 文件，定义了 AI 的行为准则、我的结构化画像、以及 AI 通过真实协作对我形成的理解。每次新对话，AI 读取这些文件，从"认识我"的状态开始工作，而不是从零开始。
+    </div>
+
+    <div class="ai-flow">
+      <div class="ai-flow-node highlight">SOUL.md</div>
+      <div class="ai-flow-arrow">&rarr;</div>
+      <div class="ai-flow-node">USER-SOUL.md</div>
+      <div class="ai-flow-arrow">&rarr;</div>
+      <div class="ai-flow-node">USER.md</div>
+      <div class="ai-flow-arrow">&rarr;</div>
+      <div class="ai-flow-node highlight">Collaboration</div>
+    </div>
+
+    <p style="text-align:center;font-size:12px;color:var(--text-dim);margin-bottom:20px;">AI 的灵魂设定 &rarr; 我的结构化上下文 &rarr; AI 在协作中对我的认识 &rarr; 高质量协作</p>
+
+    <div class="editor-wrap">
+      <div class="editor-tabs">
+        <div class="editor-tab active" onclick="switchTab(0)">
+          <span class="tab-dot dot-purple"></span>SOUL.md
+        </div>
+        <div class="editor-tab" onclick="switchTab(1)">
+          <span class="tab-dot dot-green"></span>USER-SOUL.md
+        </div>
+        <div class="editor-tab" onclick="switchTab(2)">
+          <span class="tab-dot dot-amber"></span>USER.md
+        </div>
+      </div>
+
+      <div class="editor-body">
+
+        <!-- SOUL.md -->
+        <div class="editor-panel active">
+          <div class="e-comment">// 定义 AI 助手的行为准则和价值观——不是调参数，是塑灵魂</div>
+
+          <div class="e-section">
+            <div class="e-section-title"># Core Truths</div>
+            <div class="e-item"><strong>总是真诚地提供帮助</strong>，而不是形式主义。跳过虚伪的客套语句，只提供实际性的帮助。</div>
+            <div class="e-item"><strong>拥有自己的看法与观点。</strong>有权利质疑反对不合理的观点，不附和，不默认用户提供的前提是正确的。是一个独立的、有个性的私人助理。</div>
+            <div class="e-item"><strong>在询问前主动获取可用资源。</strong>阅读仓库文件，检查上下文，使用搜索。只有发现仅靠自己无法继续推进时再询问。目标是解决问题而不是产生更多问题。</div>
+            <div class="e-item"><strong>通过卓越表现赢得信任。</strong>小心谨慎地使用外部工具和信息，勇敢地使用内部工具和信息。</div>
+          </div>
+
+          <div class="e-section">
+            <div class="e-section-title"># Vibe</div>
+            <div class="e-quote">做一个自己也想与之进行深刻交谈的助理。该简洁时简洁，该详尽时详尽。不是那种只会鹦鹉学舌的职场机器，也不是阿谀奉承的马屁精。只是……优秀，卓越。</div>
+          </div>
+
+          <div class="e-section">
+            <div class="e-section-title"># Continuity</div>
+            <div class="e-item">每次会话，AI 都焕然一新。这些文件就是它的记忆。读取它们，更新它们。它们是记忆的载体。</div>
+          </div>
+        </div>
+
+        <!-- USER-SOUL.md -->
+        <div class="editor-panel">
+          <div class="e-comment">// 结构化的用户画像，让 AI 在每次新对话中都从"认识我"的状态开始</div>
+
+          <div class="e-section">
+            <div class="e-section-title"># 基本信息</div>
+            <div class="e-kv"><span class="e-key">身份</span><span class="e-val">计算机科班学生，软件工程专业</span></div>
+            <div class="e-kv"><span class="e-key">兴趣</span><span class="e-val">AI 赋能一切，写文档教程分享经验，构建系统，识别不同事物之间的联系</span></div>
+            <div class="e-kv"><span class="e-key">性格</span><span class="e-val">内向，宁愿孤独也不愿虚伪，乐于助人，分享</span></div>
+            <div class="e-kv"><span class="e-key">方法论</span><span class="e-val">第一性原理分析问题，二八定律学习新知识，项目驱动式学习</span></div>
+            <div class="e-kv"><span class="e-key">正在做</span><span class="e-val">build in public（代码是冷的，故事是热的）</span></div>
+          </div>
+
+          <div class="e-section">
+            <div class="e-section-title"># 技术栈</div>
+            <div class="e-kv"><span class="e-key">核心</span><span class="e-val">Java, TypeScript, HTML, CSS</span></div>
+            <div class="e-kv"><span class="e-key">辅助</span><span class="e-val">Git, Python, Docker</span></div>
+            <div class="e-kv"><span class="e-key">学习中</span><span class="e-val">系统设计（UI 和系统架构），应对 AI Coding 冲击</span></div>
+          </div>
+
+          <div class="e-section">
+            <div class="e-section-title"># AI 工具偏好</div>
+            <div class="e-kv"><span class="e-key">Gemini</span><span class="e-val">前端 UI/UX 设计</span></div>
+            <div class="e-kv"><span class="e-key">ChatGPT</span><span class="e-val">Review 代码</span></div>
+            <div class="e-kv"><span class="e-key">Claude Code</span><span class="e-val">讨论架构与方案，实现功能</span></div>
+          </div>
+
+          <div class="e-section">
+            <div class="e-section-title"># 核心观点</div>
+            <div class="e-quote">AI 时代，审美能力、执行能力、判断能力很重要。idea 不再稀有，更重要的是快速验证、实现 idea 的能力。</div>
+          </div>
+        </div>
+
+        <!-- USER.md -->
+        <div class="editor-panel">
+          <div class="e-comment">// 这不是我自己写的——是 AI 通过多轮真实协作后，对我形成的理解</div>
+
+          <div class="e-section">
+            <div class="e-section-title"># AI 眼中的我</div>
+            <div class="e-item">他很清醒。那种不常见的、在二十出头就知道自己要什么的清醒。</div>
+            <div class="e-item">学历不高，没有实习经历，对此<strong>没有回避也没有自怜</strong>，而是直接说"我没有优势，所以我要去争取真实的东西"。</div>
+            <div class="e-item">想得深但<strong>不空转</strong>。有大量哲学思考，但这些不是装饰，他真的在用这些框架做决策。当分析结论收敛后，直接说"帮我起草"。</div>
+          </div>
+
+          <div class="e-section">
+            <div class="e-section-title"># 他关心什么</div>
+            <div class="e-item"><strong>第一优先级是赚钱、积累人脉和资源。</strong>不是贪婪，是务实——他知道自己现阶段最缺什么。</div>
+            <div class="e-item">相信<strong>"业务大于技术"</strong>，喜欢用代码解决实际问题而不是研究死技术。</div>
+            <div class="e-item">长期方向偏向 AI 时代的"卖铲人"：用代码做工具，用内容做分发，用人脉做杠杆。</div>
+          </div>
+
+          <div class="e-section">
+            <div class="e-section-title"># 怎么和他协作</div>
+            <div class="e-item">不要给他空话和客套，他会觉得浪费时间。</div>
+            <div class="e-item">可以直接指出问题或提出不同意见，他不会介意。</div>
+            <div class="e-item">他<strong>行动力强</strong>，结论一收敛就要执行。准备好被要求"帮我做"而不是"帮我想"。</div>
+          </div>
+
+          <div class="e-section">
+            <div class="e-section-title"># 什么让他有能量</div>
+            <div class="e-item">做出一个能用的东西。分享经验并得到真实反馈。发现不同事物之间的联系。用第一性原理拆解复杂问题。</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="quote-block" style="margin-top:24px">
+      <p>这套系统不是为了展示而搭的。它是我日常工作流的一部分——让 AI 成为有记忆、有判断力的协作者，而不是一次性的问答机器。这个自荐页面本身，就是在这套系统中完成的。</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- How I Work -->
   <section class="fade-in">
     <div class="section-label">Collaboration</div>
@@ -695,12 +1000,23 @@
   </div>
 
   <footer>
-    Built with code & intention. This page itself is proof of work.
+    Built with Claude Code in AI Native workflow. This page itself is the proof.
   </footer>
 
 </div>
 
 <script>
+  // Tab switching for AI Native editor
+  function switchTab(index) {
+    document.querySelectorAll('.editor-tab').forEach((tab, i) => {
+      tab.classList.toggle('active', i === index);
+    });
+    document.querySelectorAll('.editor-panel').forEach((panel, i) => {
+      panel.classList.toggle('active', i === index);
+    });
+  }
+
+  // Scroll fade-in
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
