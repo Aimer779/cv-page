@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自荐 - 致 Jason Zhu</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --bg: #0a0a0b;
+    --bg-card: #141416;
+    --bg-card-hover: #1a1a1e;
+    --border: #23232a;
+    --border-accent: #2d2d36;
+    --text: #e4e4e7;
+    --text-secondary: #8b8b95;
+    --text-dim: #55555e;
+    --accent: #6366f1;
+    --accent-soft: rgba(99, 102, 241, 0.12);
+    --green: #22c55e;
+    --green-soft: rgba(34, 197, 94, 0.12);
+    --amber: #f59e0b;
+    --amber-soft: rgba(245, 158, 11, 0.12);
+    --radius: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---- Hero ---- */
+  .hero {
+    padding: 80px 0 48px;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--accent-soft);
+    border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  .hero-badge .dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .hero h1 span { color: var(--accent); }
+
+  .hero p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ---- Section ---- */
+  section {
+    padding: 48px 0;
+  }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    letter-spacing: -0.3px;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0;
+  }
+
+  /* ---- Understanding Cards ---- */
+  .understand-grid {
+    display: grid;
+    gap: 12px;
+  }
+
+  .u-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    transition: all 0.2s ease;
+  }
+
+  .u-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-accent);
+  }
+
+  .u-card .u-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .u-card .u-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .u-card .u-label {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .u-card .u-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    padding-left: 42px;
+  }
+
+  .icon-purple { background: var(--accent-soft); }
+  .icon-green  { background: var(--green-soft); }
+  .icon-amber  { background: var(--amber-soft); }
+
+  /* ---- Match Section ---- */
+  .match-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .match-table th {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+    padding: 14px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,0.02);
+  }
+
+  .match-table td {
+    padding: 14px 20px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .match-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .match-table .col-need { color: var(--text-secondary); }
+  .match-table .col-mine { color: var(--text); }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .tag-high {
+    background: var(--green-soft);
+    color: var(--green);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+  }
+
+  .tag-mid {
+    background: var(--amber-soft);
+    color: var(--amber);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+  }
+
+  /* ---- Project Cards ---- */
+  .project-grid {
+    display: grid;
+    gap: 16px;
+  }
+
+  .p-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .p-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(99,102,241,0.08);
+  }
+
+  .p-card .p-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .p-card .p-name {
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  .p-card .p-arrow {
+    color: var(--text-dim);
+    font-size: 18px;
+    transition: all 0.2s;
+  }
+
+  .p-card:hover .p-arrow {
+    color: var(--accent);
+    transform: translate(2px, -2px);
+  }
+
+  .p-card .p-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+    line-height: 1.6;
+  }
+
+  .p-card .p-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .p-card .p-tag {
+    padding: 3px 10px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  .p-card .p-relevance {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ---- How I Work ---- */
+  .work-steps {
+    display: grid;
+    gap: 0;
+    position: relative;
+  }
+
+  .step {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  .step-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .step-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+    outline: 2px solid var(--accent);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  .step-line {
+    width: 1px;
+    flex: 1;
+    background: var(--border);
+    margin-top: 6px;
+  }
+
+  .step:last-child .step-line { display: none; }
+
+  .step-content .step-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .step-content .step-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  /* ---- CTA ---- */
+  .cta-section {
+    text-align: center;
+    padding: 64px 0 80px;
+  }
+
+  .cta-section .cta-text {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .cta-section .cta-sub {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+  }
+
+  .cta-links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .cta-btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .cta-btn-primary:hover {
+    background: #5558e6;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(99,102,241,0.3);
+  }
+
+  .cta-btn-secondary {
+    background: var(--bg-card);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .cta-btn-secondary:hover {
+    border-color: var(--border-accent);
+    background: var(--bg-card-hover);
+  }
+
+  /* ---- Quote ---- */
+  .quote-block {
+    background: var(--bg-card);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 20px 24px;
+    margin: 32px 0;
+  }
+
+  .quote-block p {
+    font-size: 15px;
+    font-style: italic;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .quote-block .quote-src {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--text-dim);
+    font-style: normal;
+  }
+
+  /* ---- Footer ---- */
+  footer {
+    text-align: center;
+    padding: 24px 0 40px;
+    font-size: 12px;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 640px) {
+    .hero { padding: 56px 0 36px; }
+    .hero h1 { font-size: 28px; }
+    section { padding: 36px 0; }
+    .match-table th, .match-table td { padding: 12px 14px; font-size: 13px; }
+    .cta-links { flex-direction: column; align-items: center; }
+  }
+
+  /* ---- Fade-in Animation ---- */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero fade-in">
+    <div class="hero-badge"><span class="dot"></span> Open to Collaborate</div>
+    <h1>致 <span>Jason Zhu</span> 的自荐</h1>
+    <p>不是来问"怎么投简历"的——我研究了你的业务，做了对口的项目，想聊聊我能帮你做什么。</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Understanding -->
+  <section class="fade-in">
+    <div class="section-label">Understanding</div>
+    <div class="section-title">我对这个岗位的理解</div>
+    <div class="understand-grid">
+      <div class="u-card">
+        <div class="u-header">
+          <div class="u-icon icon-purple">01</div>
+          <div class="u-label">不是"开发实习"，是 Founder Assistant</div>
+        </div>
+        <div class="u-desc">你刚从一人公司升级成小团队，需要的不是只会写代码的人，而是能同时处理开发、数据和内容协作的通才。岗位边界会随业务需要变动，这不是bug，是feature。</div>
+      </div>
+      <div class="u-card">
+        <div class="u-header">
+          <div class="u-icon icon-green">02</div>
+          <div class="u-label">MCN 数据统计的本质是减少你的决策成本</div>
+        </div>
+        <div class="u-desc">博主维护和数据工作的价值不在于"统计本身"，而在于让你不用花时间盯数字，只需要看结论做判断。能自动化的尽量自动化，人工只处理需要脑子的部分。</div>
+      </div>
+      <div class="u-card">
+        <div class="u-header">
+          <div class="u-icon icon-amber">03</div>
+          <div class="u-label">工具开发要快，不要完美</div>
+        </div>
+        <div class="u-desc">你的业务节奏是快速验证、快速迭代。网页和工具开发不需要过度工程化，需要的是能用 AI + 前端快速出 MVP，根据反馈再调整。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Match -->
+  <section class="fade-in">
+    <div class="section-label">Fit Analysis</div>
+    <div class="section-title">岗位匹配度</div>
+    <table class="match-table">
+      <thead>
+        <tr>
+          <th style="width:35%">你需要的</th>
+          <th style="width:50%">我的情况</th>
+          <th style="width:15%">匹配</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-need">拥抱 AI 和 Vibe Coding</td>
+          <td class="col-mine">日常用 Claude Code + Gemini + ChatGPT 做项目，对 AI Coding 有成体系的方法论（Spec 驱动、上下文管理、经验沉淀）</td>
+          <td><span class="tag tag-high">高</span></td>
+        </tr>
+        <tr>
+          <td class="col-need">MCN 数据统计</td>
+          <td class="col-mine">已有 SignalAI 项目：用 X API + RSS 追踪 KOL 动态，具备数据抓取→清洗→聚合展示的完整经验</td>
+          <td><span class="tag tag-high">高</span></td>
+        </tr>
+        <tr>
+          <td class="col-need">网页和工具开发</td>
+          <td class="col-mine">Java / Python / TypeScript / HTML+CSS，做过 CLI 工具和 Web Dashboard，可用 AI 快速出原型</td>
+          <td><span class="tag tag-high">高</span></td>
+        </tr>
+        <tr>
+          <td class="col-need">审美和好奇心</td>
+          <td class="col-mine">正在系统学习 UI 设计和系统架构，关注产品体验（这个页面就是证明）</td>
+          <td><span class="tag tag-mid">中高</span></td>
+        </tr>
+        <tr>
+          <td class="col-need">OpenClaw 生态理解</td>
+          <td class="col-mine">在 ClawHub 上追热点做了 ima-note-cli，了解 skill 的开发规范和发布流程</td>
+          <td><span class="tag tag-high">高</span></td>
+        </tr>
+        <tr>
+          <td class="col-need">做事先确认，中间同步，完成反馈</td>
+          <td class="col-mine">认同闭环协作，习惯写文档记录过程，build in public 本身就是持续反馈</td>
+          <td><span class="tag tag-high">高</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Projects -->
+  <section class="fade-in">
+    <div class="section-label">Proof of Work</div>
+    <div class="section-title">相关项目</div>
+    <div class="project-grid">
+      <a class="p-card" href="https://github.com/Aimer779/SignalAI" target="_blank" rel="noopener">
+        <div class="p-top">
+          <div class="p-name">SignalAI</div>
+          <div class="p-arrow">&nearr;</div>
+        </div>
+        <div class="p-desc">基于 X API + RSS 的 AI 领域信息聚合看板。自动收集 KOL、头部公司的账号动态和技术博客，生成结构化信息流。</div>
+        <div class="p-tags">
+          <span class="p-tag">X API</span>
+          <span class="p-tag">RSS</span>
+          <span class="p-tag">Dashboard</span>
+          <span class="p-tag">数据聚合</span>
+        </div>
+        <div class="p-relevance">&#8618; 直接复用于 MCN 博主数据追踪和自动化报表</div>
+      </a>
+      <a class="p-card" href="https://github.com/Aimer779/ima-note-cli" target="_blank" rel="noopener">
+        <div class="p-top">
+          <div class="p-name">ima-note-cli</div>
+          <div class="p-arrow">&nearr;</div>
+        </div>
+        <div class="p-desc">基于 IMA OpenAPI 的 Python 命令行工具。看到 ClawHub 上有人发了 IMA skill，自己也是 IMA 用户，就做了配套 CLI——搜索、浏览、新建、追加笔记，已是可安装的 MVP。</div>
+        <div class="p-tags">
+          <span class="p-tag">Python</span>
+          <span class="p-tag">CLI</span>
+          <span class="p-tag">OpenClaw 生态</span>
+          <span class="p-tag">IMA API</span>
+        </div>
+        <div class="p-relevance">&#8618; 证明对 OpenClaw skill 生态的理解和独立交付能力</div>
+      </a>
+    </div>
+
+    <div class="quote-block">
+      <p>两个项目都在 Linux.do 和小红书上做过推广。不只是写代码，也做内容分发。</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- How I Work -->
+  <section class="fade-in">
+    <div class="section-label">Collaboration</div>
+    <div class="section-title">我的协作方式</div>
+    <div class="work-steps">
+      <div class="step">
+        <div class="step-indicator">
+          <div class="step-dot"></div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">做之前先对齐</div>
+          <div class="step-desc">接到需求先确认目标和预期产出，不确定的地方主动问清楚，不凭假设动手。</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator">
+          <div class="step-dot"></div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">中间持续同步</div>
+          <div class="step-desc">遇到问题不攒着，及时沟通。进展有节点就同步，不让你追着问进度。</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator">
+          <div class="step-dot"></div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">做完闭环反馈</div>
+          <div class="step-desc">交付时附上结果说明，哪些做了、哪些没做到、下一步建议。习惯写文档沉淀过程。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- What I Want -->
+  <section class="fade-in">
+    <div class="section-label">Honesty</div>
+    <div class="section-title">我想从这里获得什么</div>
+    <div class="understand-grid">
+      <div class="u-card">
+        <div class="u-header">
+          <div class="u-icon icon-purple">&#9670;</div>
+          <div class="u-label">真实商业场景</div>
+        </div>
+        <div class="u-desc">接触真实业务、真实用户、真实变现，这些在学校拿不到。</div>
+      </div>
+      <div class="u-card">
+        <div class="u-header">
+          <div class="u-icon icon-green">&#9670;</div>
+          <div class="u-label">增长和包装能力</div>
+        </div>
+        <div class="u-desc">学习 X 运营增长和内容包装的实战方法，补上"做得好"到"让人知道"之间的差距。</div>
+      </div>
+      <div class="u-card">
+        <div class="u-header">
+          <div class="u-icon icon-amber">&#9670;</div>
+          <div class="u-label">人脉和资源</div>
+        </div>
+        <div class="u-desc">进入 AI 出海圈子，积累真实的人脉连接，为未来的独立发展做准备。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <div class="cta-section fade-in">
+    <div class="cta-text">不是来找工作的，是来解决问题的</div>
+    <div class="cta-sub">如果你觉得聊得上，随时联系我。</div>
+    <div class="cta-links">
+      <a class="cta-btn cta-btn-primary" href="https://github.com/Aimer779" target="_blank" rel="noopener">GitHub &nearr;</a>
+      <a class="cta-btn cta-btn-secondary" href="https://github.com/Aimer779/SignalAI" target="_blank" rel="noopener">SignalAI &nearr;</a>
+      <a class="cta-btn cta-btn-secondary" href="https://github.com/Aimer779/ima-note-cli" target="_blank" rel="noopener">ima-note-cli &nearr;</a>
+    </div>
+  </div>
+
+  <footer>
+    Built with code & intention. This page itself is proof of work.
+  </footer>
+
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
